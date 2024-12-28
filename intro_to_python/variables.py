@@ -15,7 +15,7 @@ print(f"My name is {name}, I am {age} years old, and my height is {height} meter
 
 # Update variables
 name = "Junior"
-age = 33
+age = 34
 height = 1.80
 
 # Print the updated values of the variables
