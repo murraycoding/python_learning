@@ -66,7 +66,7 @@ num2 =float(input("Please enter the second number : "))
 
 print(f"Numbers entered: num1 = {num1} ; num2 = {num2}\n")
 
-num1 = int(round(num1,))
+num1 = int(round(num1))
 num2 = int(round(num2))
 
 print(f"Numbers rounded: num1 = {num1} ; num2 = {num2}\n")
@@ -76,8 +76,9 @@ print(f"Numbers rounded: num1 = {num1} ; num2 = {num2}\n")
 print(f"The sum of the 2 numbers entered: {num1} + {num2} = {num1+num2}\n")
 print(f"The difference of the 2 numbers entered: {num2} - {num1} = {num2-num1}\n")
 print(f"The product of the 2 numbers entered: {num2} x {num1} = {num2*num1}\n")
-print(f"The division of the 2 numbers entered: {num1} / {num2} = {num1/num2}\n")
+print(f"The division of the 2 numbers entered: {num1} / {num2} = {float(round((num1/num2),2))}\n")
 
 print("Decimals are not taken in consideration")
 
 # Assignment completed 
+
