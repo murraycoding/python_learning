@@ -14,8 +14,8 @@ print("Height:", height)
 print(f"My name is {name}, I am {age} years old, and my height is {height} meters.")
 
 # Update variables
-name = "Junior"
-age = 33
+name = "Junior U"
+age = 34
 height = 1.80
 
 # Print the updated values of the variables
