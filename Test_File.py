@@ -1,11 +1,20 @@
 import pandas as pd
-
+'''
+Note to Self: Pandas to update row.
+'''
 #Search and read the excel file
 file_path = 'Wal.xls'
 data = pd.read_excel(file_path)
+data2 = pd.DataFrame(data)
+
+data2['Ref: Freight Bill Number'] = data2['Ref: Freight Bill Number'].astype('Int64')
+#Make a column a key or as the index
+data2 = data2.set_index('Ref: Freight Bill Number')
 
 #Display all the columns in the sheet
 #print(data.columns.tolist()) 
+
+print(data2)
 
 test = data.columns.tolist()
 
