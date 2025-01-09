@@ -1,0 +1,14 @@
+
+Use the following Regex to extract all the alphanumeric characters after the word DRYVAN
+EXAMPLES 
+DRYVAN-356
+DRYVAN L2
+DRYVAN 54-689
+
+It will extract 356, L2, 54689
+
+(?i)DRYVAN[-\s]*([A-Za-z\d\-]+)
+
+(?i) makes it case-insensitive.
+DRYVAN[-\s]* matches "DRYVAN" followed by zero or more spaces or hyphens.
+([A-Za-z\d\-]+) captures one or more alphanumeric characters or hyphens.

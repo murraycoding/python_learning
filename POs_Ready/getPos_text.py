@@ -19,7 +19,9 @@ def getPOs_text(POFile,POPath,PODataFile):
         po = r'\b\d{6}\b' #r in front of the regex code and then the regex code between ''
         weight = r'(?i)packages\s+(\d{1,3}(?:,\d{3})*(?:\.\d+)?)'
         qty_pieces = r'\d+\s+Packages'
-        trailer = r'(?i)DRYVAN[-\s]*([\d\-]+)'
+        trailer = r'(?i)DRYV?A?N?[-\s]*([A-Za-z\d\-]+)'
+
+
     
         text = page.get_text()
         match_po = re.findall(po, text)
