@@ -28,6 +28,7 @@ def getPOs_text(POFile,POPath,PODataFile):
         match_weight = re.findall(weight, text)
         match_qty_pieces = re.findall(qty_pieces, text)
         match_trailer = re.findall(trailer,text)
+        
     
     #print(text)
     #pos_weight_qty.append((match_po,match_weight,match_qty_pieces,match_trailer))
