@@ -1,0 +1,41 @@
+'''
+password_field = driver.find_element(By.ID, "password")  # Adjust to correct field identifier
+
+# Input your login credentials
+username_field.send_keys("your_username")  # Replace with your username
+password_field.send_keys("your_password")  # Replace with your password
+
+# Submit the form by pressing Enter
+password_field.send_keys(Keys.RETURN)
+
+# Optionally wait for a moment or page load after login
+driver.implicitly_wait(5)
+'''    
+'''
+
+    # Step 1: Click the first button after ensuring it's clickable
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "first_button_id"))).click()
+    print("Clicked first button")
+
+    # Step 2: Wait for the next page to load
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "next_page_element_id")))
+
+    # Step 3: Click the second button
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "second_button_id"))).click()
+    print("Clicked second button")
+
+    # Step 4: Interact with the login form
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "login_form_id")))
+    print("Login form is present")
+
+    # Fill out and submit the login form
+    username_field = driver.find_element(By.ID, "username")
+    password_field = driver.find_element(By.ID, "password")
+    login_button = driver.find_element(By.ID, "login_button")
+
+    username_field.send_keys("your_username")
+    password_field.send_keys("your_password")
+    login_button.click()
+    print("Logged in")
+'''
+['3 Day (3dz - 3dz)', '$686', '$554 - $744', '77 Reports', 'domain', '31 Companies', '7 Day (3dz - 3dz)', '$681', '$552 - $739', '148', 'domain', '47', '15 Day (3dz - 3dz)', '$708', '$554 - $759', '298', 'domain', '67', '30 Day (3dz - 3dz)', '$645', '$552 - $686', '714', 'domain', '104']

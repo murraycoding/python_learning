@@ -2,6 +2,7 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from POs_Reader import *
+from RC_Reader.getRC_text import *
 
 # Function to run when a new file is added
 def on_created(event):
