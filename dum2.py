@@ -17,7 +17,7 @@ import pandas as pd
 
 #Set up Chrome options for headless mode
 chrome_options = Options()
-# chrome_options.add_argument("--headless")  # Run in headless mode
+#chrome_options.add_argument("--headless")  # Run in headless mode
 chrome_options.add_argument("--disable-gpu")  # Disable GPU hardware acceleration (optional, recommended for headless)
 chrome_options.add_argument("--no-sandbox")  # Disable sandboxing (needed on some environments)
 
@@ -75,13 +75,12 @@ driver.switch_to.window(new_tab)
 '''
 BEGINNING OF THE LOOP
 '''
-data_file_path = ''
+data_file_path = '/Users/jmutcap/OneDrive - CUEBITZ LLC/Soils_Main_sheet.xlsx'
 data_file_open = pd.read_excel(data_file_path)
 data_file_df = pd.DataFrame(data_file_open)
 
-for x in data_file_df['FB#']:
+for index, row in data_file_df.iterrows():
     try:
-        
         #search for the shipment
         #Locate the search bar using its placeholder attribute
         search_bar = WebDriverWait(driver, 30).until(
@@ -89,7 +88,7 @@ for x in data_file_df['FB#']:
         )
 
         search_bar.click()
-        search_bar.send_keys("37290538")
+        search_bar.send_keys(row['FB#'])
         search_bar.send_keys(Keys.RETURN)
         print("Load searched")
 
@@ -162,9 +161,9 @@ for x in data_file_df['FB#']:
         rate_input = rate_input_div.find_element(By.CSS_SELECTOR, "input[type='text']")
         rate_input.click()
         rate_input.clear()
-        rate_input.send_keys("50.00")
+        rate_input.send_keys(row['TotalRevenue'])
         rate_input.send_keys(Keys.TAB)
-
+        print('Rate Entered')
         # Click to trigger 'focused' class on the dropdown
         # Locate the parent row for the dropdown (e.g., 'Fuel Surcharge')
         parent_row = driver.find_element(By.XPATH, "//tr[.//span[text()='Fuel Surcharge']]")
@@ -197,11 +196,15 @@ for x in data_file_df['FB#']:
         rate_input2.clear()
         rate_input2.send_keys("0.24")
         rate_input2.send_keys(Keys.TAB)
+        
+        print("Fuel Rate entered")
 
         save_rate = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "button.ux-button.ux-select-button.ux-button-primary.ux-button-solid"))
         )
         save_rate.click()
+        
+        print("Rate Saved")
         # Locate the input field for the rate
         # rate_input = driver.find_element(By.NAME, "charge.YB18JOM0tb.rate")
         # rate_input.send_keys(Keys.TAB)
@@ -217,8 +220,9 @@ for x in data_file_df['FB#']:
 
 
         time.sleep(6)
-    except Exception as e:
-        print(f"Error: {e}")
+    except:
+        print(f"Error on {row['FB#']}")
+        driver.refresh()
         
         # #hovering the rate field
         # hover_element = WebDriverWait(driver, 10).until(
