@@ -7,7 +7,7 @@ import re
 
 def login_excel_in():
 #excel data to get the locations
-    excel_in_path = "WalmartTemp2.xlsx"
+    excel_in_path = "WalmartTemp3.xlsx"
     excel_in_open = pd.read_excel(excel_in_path)
     excel_df = pd.DataFrame(excel_in_open)
     
@@ -19,7 +19,7 @@ def login_excel_in():
     
     org_des = []
     for index, x in excel_df.iterrows():
-        origin_destination = x['Shipper City'] + "-" + x['Shipper State'] + "~" + x['Consignee City'] + "-" + x['Consignee State'] + "~" + "Van"
+        origin_destination = x['Shipper City'] + "-" + x['Shipper State'] + "~" + x['Consignee City'] + "-" + x['Consignee State'] + "~" + "reefer"
         org_des2 = org_des.append(origin_destination)
 
     return org_des

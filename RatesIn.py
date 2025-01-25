@@ -98,7 +98,8 @@ for index, row in data_file_df.iterrows():
         assign_customer_rate_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//span[@title='Assign Customer Rate']"))
         )
-
+        # Scroll into view if the element is off-screen
+        
         # Click the button
         assign_customer_rate_button.click()
 
@@ -108,7 +109,7 @@ for index, row in data_file_df.iterrows():
         dropdown = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//select[@name='priceSheet.charges.0.commodity']"))
         )
-
+        driver.execute_script("arguments[0].scrollIntoView(true);", dropdown)
         # Click the dropdown to open it
         dropdown.click()
 
